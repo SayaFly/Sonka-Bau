@@ -776,7 +776,9 @@
                 videoPlayer.currentTime = 0;
                 var playPromise = videoPlayer.play();
                 if (playPromise && typeof playPromise.catch === 'function') {
-                    playPromise.catch(function () {});
+                    playPromise.catch(function (error) {
+                        console.warn('Video konnte nicht automatisch gestartet werden:', error);
+                    });
                 }
             });
 
