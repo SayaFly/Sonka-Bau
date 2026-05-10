@@ -143,47 +143,49 @@
                     <div class="col-lg-6 wow fadeInRight" data-wow-delay="0.4s">
                         <div>
                             <h4 class="lh-base mb-4">Je detaillierter Ihre Angaben sind, desto präziser können wir Ihr Projekt kalkulieren und Ihnen ein maßgeschneidertes Angebot unterbreiten.</h4>
-                            <form id="contactForm">
+                            <form id="contactForm" action="https://formsubmit.co/kontakt@sonka-bau.de" method="POST">
+                                <input type="hidden" name="_subject" value="Neue Kontaktanfrage über sonka-bau.de">
+                                <input type="hidden" name="_captcha" value="false">
+                                <input type="hidden" name="_template" value="table">
                                 <div class="row g-4">
                                     <div class="col-lg-12 col-xl-6">
                                         <div class="form-floating">
-                                            <input type="text" class="form-control border-0" id="name" placeholder="Ihr Name" required>
+                                            <input type="text" class="form-control border-0" id="name" name="name" placeholder="Ihr Name" required>
                                             <label for="name">Ihr Vor- und Nachname</label>
                                         </div>
                                     </div>
                                     <div class="col-lg-12 col-xl-6">
                                         <div class="form-floating">
-                                            <input type="email" class="form-control border-0" id="email" placeholder="Ihre Email" required>
+                                            <input type="email" class="form-control border-0" id="email" name="email" placeholder="Ihre Email" required>
                                             <label for="email">Ihre Email</label>
                                         </div>
                                     </div>
                                     <div class="col-lg-12 col-xl-6">
                                         <div class="form-floating">
-                                            <input type="phone" class="form-control border-0" id="phone" placeholder="Telefonnummer">
+                                            <input type="tel" class="form-control border-0" id="phone" name="phone" placeholder="Telefonnummer">
                                             <label for="phone">Telefonnummer</label>
                                         </div>
                                     </div>
                                     <div class="col-lg-12 col-xl-6">
                                         <div class="form-floating">
-                                            <input type="text" class="form-control border-0" id="project" placeholder="Ihr Projekt">
+                                            <input type="text" class="form-control border-0" id="project" name="project" placeholder="Ihr Projekt">
                                             <label for="project">Ihr Auftrag</label>
                                         </div>
                                     </div>
                                     <div class="col-12">
                                         <div class="form-floating">
-                                            <input type="text" class="form-control border-0" id="subject" placeholder="Wobei brauchen sie hilfe?">
+                                            <input type="text" class="form-control border-0" id="subject" name="subject" placeholder="Wobei brauchen sie hilfe?">
                                             <label for="subject">Zusatzliche Informationen</label>
                                         </div>
                                     </div>
                                     <div class="col-12">
                                         <div class="form-floating">
-                                            <textarea class="form-control border-0" placeholder="Leave a message here" id="message" style="height: 125px" required></textarea>
+                                            <textarea class="form-control border-0" placeholder="Leave a message here" id="message" name="message" style="height: 125px" required></textarea>
                                             <label for="message">Ihre Nachricht/Auftrag</label>
                                         </div>
                                     </div>
                                     <div class="col-12">
                                         <button type="submit" class="btn btn-primary w-100 py-3">Absenden</button>
-                                        <div id="contactFormError" class="text-danger mt-2" role="alert" aria-live="polite" style="display:none;"></div>
                                     </div>
                                 </div>
                             </form>
@@ -319,84 +321,6 @@
             icon.style.transform = `scale(${scale})`;
          }, 100);
          </script>
-         <script>
-         const contactForm = document.getElementById("contactForm");
-         // Conservative limit to avoid browser/email-client URL length issues with mailto links.
-         const MAX_MAILTO_LENGTH = 1900;
-         const fieldIds = ["name", "email", "phone", "project", "subject", "message"];
-         const fields = Object.fromEntries(fieldIds.map((id) => [id, document.getElementById(id)]));
-         const contactFormError = document.getElementById("contactFormError");
-         const submitButton = contactForm?.querySelector('button[type="submit"]');
-
-         const setFormError = (message) => {
-            if (!contactFormError) return;
-            if (!message) {
-               contactFormError.textContent = "";
-               contactFormError.style.display = "none";
-               return;
-            }
-
-            contactFormError.textContent = message;
-            contactFormError.style.display = "block";
-         };
-
-         if (contactForm) {
-            if (Object.values(fields).some((field) => !field)) {
-               console.error("Kontaktformular-Felder fehlen im DOM.");
-               if (submitButton) submitButton.disabled = true;
-               setFormError("Das Formular konnte nicht vollständig geladen werden. Bitte laden Sie die Seite neu.");
-            } else {
-               contactForm.addEventListener("submit", function (event) {
-                  event.preventDefault();
-                  setFormError("");
-
-                  const getFieldValue = (id) => fields[id].value.trim();
-                  const name = getFieldValue("name");
-                  const email = getFieldValue("email");
-                  const phone = getFieldValue("phone");
-                  const project = getFieldValue("project");
-                  const subject = getFieldValue("subject");
-                  const message = getFieldValue("message");
-
-                  if (!name || !email || !message) {
-                     setFormError("Bitte füllen Sie mindestens Name, E-Mail und Nachricht aus.");
-                     return;
-                  }
-
-                  if (!fields.email.checkValidity()) {
-                     setFormError("Bitte geben Sie eine gültige E-Mail-Adresse ein.");
-                     return;
-                  }
-
-                  const mailSubject = encodeURIComponent(`Kontaktanfrage von ${name}`);
-                  const mailBody = encodeURIComponent(
-                     [
-                        "Neue Kontaktanfrage über kontakt.html",
-                        "",
-                        `Name: ${name}`,
-                        `E-Mail: ${email}`,
-                        `Telefon: ${phone}`,
-                        `Auftrag: ${project}`,
-                        `Zusätzliche Informationen: ${subject}`,
-                        `Nachricht: ${message}`,
-                     ].join("\n")
-                  );
-
-                  const mailtoUrl = `mailto:kontakt@sonka-bau.de?subject=${mailSubject}&body=${mailBody}`;
-
-                  if (mailtoUrl.length > MAX_MAILTO_LENGTH) {
-                     setFormError("Ihre Eingaben sind zu lang. Bitte kürzen Sie vor allem das Feld „Ihre Nachricht/Auftrag“.");
-                     return;
-                  }
-
-                  window.location.href = mailtoUrl;
-               });
-            }
-         }
-         </script>
-        
-
-
         <!-- Back to Top -->
         <a href="#" class="btn btn-primary btn-lg-square back-to-top"><i class="fa fa-arrow-up"></i></a>   
 
