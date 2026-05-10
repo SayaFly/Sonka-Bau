@@ -182,7 +182,7 @@
                                         </div>
                                     </div>
                                     <div class="col-12">
-                                        <button type="submit" class="btn btn-primary w-100 py-3" aria-label="Kontaktformular absenden">Absenden</button>
+                                        <button type="submit" class="btn btn-primary w-100 py-3">Absenden</button>
                                     </div>
                                 </div>
                             </form>
@@ -320,6 +320,7 @@
          </script>
          <script>
          const contactForm = document.getElementById("contactForm");
+         const MAX_MAILTO_LENGTH = 1900;
 
          if (contactForm) {
             contactForm.addEventListener("submit", function (event) {
@@ -349,8 +350,8 @@
 
                const mailtoUrl = `mailto:kontakt@sonka-bau.de?subject=${mailSubject}&body=${mailBody}`;
 
-               if (mailtoUrl.length > 1900) {
-                  alert("Ihre Nachricht ist zu lang. Bitte kürzen Sie den Text, damit die E-Mail korrekt geöffnet werden kann.");
+               if (mailtoUrl.length > MAX_MAILTO_LENGTH) {
+                  alert(`Ihre Eingaben sind zu lang (${mailtoUrl.length}/${MAX_MAILTO_LENGTH} Zeichen). Bitte kürzen Sie vor allem das Feld „Ihre Nachricht/Auftrag“.`);
                   return;
                }
 
