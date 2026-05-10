@@ -182,7 +182,7 @@
                                         </div>
                                     </div>
                                     <div class="col-12">
-                                        <button type="submit" class="btn btn-primary w-100 py-3">Absenden</button>
+                                        <button type="submit" class="btn btn-primary w-100 py-3" aria-label="Kontaktformular absenden">Absenden</button>
                                     </div>
                                 </div>
                             </form>
@@ -325,12 +325,13 @@
             contactForm.addEventListener("submit", function (event) {
                event.preventDefault();
 
-               const name = (document.getElementById("name")?.value || "").trim();
-               const email = (document.getElementById("email")?.value || "").trim();
-               const phone = (document.getElementById("phone")?.value || "").trim();
-               const project = (document.getElementById("project")?.value || "").trim();
-               const subject = (document.getElementById("subject")?.value || "").trim();
-               const message = (document.getElementById("message")?.value || "").trim();
+               const getFieldValue = (id) => (document.getElementById(id)?.value || "").trim();
+               const name = getFieldValue("name");
+               const email = getFieldValue("email");
+               const phone = getFieldValue("phone");
+               const project = getFieldValue("project");
+               const subject = getFieldValue("subject");
+               const message = getFieldValue("message");
 
                const mailSubject = encodeURIComponent(`Kontaktanfrage von ${name || "Website-Besucher"}`);
                const mailBody = encodeURIComponent(
@@ -346,7 +347,14 @@
                   ].join("\n")
                );
 
-               window.location.href = `mailto:kontakt@sonka-bau.de?subject=${mailSubject}&body=${mailBody}`;
+               const mailtoUrl = `mailto:kontakt@sonka-bau.de?subject=${mailSubject}&body=${mailBody}`;
+
+               if (mailtoUrl.length > 1900) {
+                  alert("Ihre Nachricht ist zu lang. Bitte kürzen Sie den Text, damit die E-Mail korrekt geöffnet werden kann.");
+                  return;
+               }
+
+               window.location.href = mailtoUrl;
             });
          }
          </script>
