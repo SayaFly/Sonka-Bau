@@ -183,7 +183,7 @@
                                     </div>
                                     <div class="col-12">
                                         <button type="submit" class="btn btn-primary w-100 py-3">Absenden</button>
-                                        <div id="contactFormError" class="text-danger mt-2" role="alert" aria-live="polite" aria-hidden="true" tabindex="-1" style="display:none;"></div>
+                                        <div id="contactFormError" class="text-danger mt-2" role="alert" aria-live="polite" aria-hidden="true" style="display:none;"></div>
                                     </div>
                                 </div>
                             </form>
@@ -339,8 +339,6 @@
             contactFormError.textContent = message;
             contactFormError.style.display = "block";
             contactFormError.setAttribute("aria-hidden", "false");
-            contactFormError.focus();
-            contactFormError.scrollIntoView({ behavior: "smooth", block: "center" });
          };
 
          if (contactForm) {
@@ -388,8 +386,7 @@
                   const mailtoUrl = `mailto:kontakt@sonka-bau.de?subject=${mailSubject}&body=${mailBody}`;
 
                   if (mailtoUrl.length > MAX_MAILTO_LENGTH) {
-                     const totalInputLength = [name, email, phone, project, subject, message].join("").length;
-                     setFormError(`Ihre Eingaben sind zu lang (${totalInputLength} Zeichen Inhalt). Bitte kürzen Sie vor allem das Feld „Ihre Nachricht/Auftrag“.`);
+                     setFormError(`Ihre Eingaben sind zu lang (${mailtoUrl.length}/${MAX_MAILTO_LENGTH} technische Zeichen inkl. Kodierung). Bitte kürzen Sie vor allem das Feld „Ihre Nachricht/Auftrag“.`);
                      return;
                   }
 
