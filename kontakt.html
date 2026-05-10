@@ -183,7 +183,7 @@
                                     </div>
                                     <div class="col-12">
                                         <button type="submit" class="btn btn-primary w-100 py-3">Absenden</button>
-                                        <div id="contactFormError" class="text-danger mt-2" role="alert" aria-live="polite" aria-hidden="true" style="display:none;"></div>
+                                        <div id="contactFormError" class="text-danger mt-2" role="alert" aria-live="polite" style="display:none;"></div>
                                     </div>
                                 </div>
                             </form>
@@ -321,6 +321,7 @@
          </script>
          <script>
          const contactForm = document.getElementById("contactForm");
+         // Conservative limit to avoid browser/email-client URL length issues with mailto links.
          const MAX_MAILTO_LENGTH = 1900;
          const fieldIds = ["name", "email", "phone", "project", "subject", "message"];
          const fields = Object.fromEntries(fieldIds.map((id) => [id, document.getElementById(id)]));
@@ -332,13 +333,11 @@
             if (!message) {
                contactFormError.textContent = "";
                contactFormError.style.display = "none";
-               contactFormError.setAttribute("aria-hidden", "true");
                return;
             }
 
             contactFormError.textContent = message;
             contactFormError.style.display = "block";
-            contactFormError.setAttribute("aria-hidden", "false");
          };
 
          if (contactForm) {
@@ -386,7 +385,7 @@
                   const mailtoUrl = `mailto:kontakt@sonka-bau.de?subject=${mailSubject}&body=${mailBody}`;
 
                   if (mailtoUrl.length > MAX_MAILTO_LENGTH) {
-                     setFormError(`Ihre Eingaben sind zu lang (${mailtoUrl.length}/${MAX_MAILTO_LENGTH} technische Zeichen inkl. Kodierung). Bitte kürzen Sie vor allem das Feld „Ihre Nachricht/Auftrag“.`);
+                     setFormError("Ihre Eingaben sind zu lang. Bitte kürzen Sie vor allem das Feld „Ihre Nachricht/Auftrag“.");
                      return;
                   }
 
