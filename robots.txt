@@ -1,0 +1,70 @@
+
+# ============================================================
+# robots.txt – Sonka Bau e.K. | https://www.sonka-bau.de/
+# Optimiert für Google, Bing, ChatGPT (GPTBot), Anthropic,
+# Perplexity und alle weiteren relevanten Crawler.
+# ============================================================
+
+# --- Standard (alle Crawler) ---
+User-agent: *
+Allow: /
+Disallow: /alt/
+Disallow: /js-buildet/
+Disallow: /33/
+Disallow: /index-backup.html
+Disallow: /service copy.html
+
+# --- Googlebot ---
+User-agent: Googlebot
+Allow: /
+Disallow: /alt/
+Disallow: /js-buildet/
+Disallow: /33/
+
+# --- Google Image ---
+User-agent: Googlebot-Image
+Allow: /img/
+
+# --- Bing / Microsoft Copilot ---
+User-agent: Bingbot
+Allow: /
+Disallow: /alt/
+Disallow: /js-buildet/
+Disallow: /33/
+
+# --- ChatGPT / OpenAI (GPTBot & ChatGPT-User) ---
+# Erlaubt damit Sonka Bau in ChatGPT-Suchen erscheint
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+# --- OAI-SearchBot (OpenAI Bing-Integration) ---
+User-agent: OAI-SearchBot
+Allow: /
+
+# --- Anthropic (Claude) ---
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+# --- Perplexity AI ---
+User-agent: PerplexityBot
+Allow: /
+
+# --- Meta / Facebook ---
+User-agent: facebookexternalhit
+Allow: /
+
+# --- Common SEO Crawlers ---
+User-agent: AhrefsBot
+Allow: /
+
+User-agent: SemrushBot
+Allow: /
+
+# Sitemap
+Sitemap: https://www.sonka-bau.de/sitemap.xml

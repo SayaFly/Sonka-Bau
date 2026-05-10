@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="utf-8">
+    <title>Galerie – Projekte & Bilder | Sonka Bau Bremen</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta name="keywords" content="Galerie Sonka Bau, Bauprojekte Bremen, Pflasterarbeiten Bilder, Erdarbeiten Referenzen, Tiefbau Bilder, Gartenbau Projekte">
+    <meta name="description" content="Entdecken Sie die Galerie von Sonka Bau mit Bildern aus Pflasterarbeiten, Tiefbau, Erdbau sowie Garten- und Landschaftsbau in Bremen und Umgebung.">
+    <link rel="canonical" href="https://www.sonka-bau.de/gallerie.html">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.sonka-bau.de/gallerie.html">
+    <meta property="og:title" content="Galerie – Projekte & Bilder | Sonka Bau Bremen">
+    <meta property="og:description" content="Bilder aus realisierten Projekten von Sonka Bau: Pflasterarbeiten, Tiefbau, Erdbau sowie Garten- und Landschaftsbau.">
+    <meta property="og:image" content="https://www.sonka-bau.de/img/Pflasterarbeiten/Pflaster-Beteinfassung.jpg">
+    <meta property="og:locale" content="de_DE">
+    <meta property="og:site_name" content="Sonka Bau">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ImageGallery",
+      "name": "Sonka Bau Galerie",
+      "url": "https://www.sonka-bau.de/gallerie.html",
+      "description": "Bildergalerie von Sonka Bau mit Referenzen aus Pflasterarbeiten, Tiefbau, Erdbau und Gartenlandschaftsbau in Bremen und Umgebung.",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Sonka Bau e.K.",
+        "url": "https://www.sonka-bau.de/"
+      }
+    }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Edu+TAS+Beginner:wght@400..700&family=Jost:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="lib/animate/animate.min.css"/>
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+
+    <style>
+        .gallery-project {
+            border-top: 1px solid #e9ecef;
+            padding-top: 2.5rem;
+            margin-top: 2.5rem;
+        }
+
+        .gallery-project:first-of-type {
+            border-top: 0;
+            padding-top: 0;
+            margin-top: 0;
+        }
+
+        .gallery-project-title {
+            font-size: 1.6rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .gallery-item {
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.08);
+            background: #fff;
+        }
+
+        .gallery-open {
+            display: block;
+            width: 100%;
+            padding: 0;
+            border: 0;
+            background: transparent;
+            text-align: left;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 260px;
+            object-fit: cover;
+            transition: transform .3s ease;
+            display: block;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+
+        .gallery-caption {
+            padding: 1rem;
+            font-weight: 600;
+        }
+
+        .baustellen-carousel .owl-nav .owl-prev,
+        .baustellen-carousel .owl-nav .owl-next {
+            position: absolute;
+            top: 40%;
+            transform: translateY(-50%);
+            width: 42px;
+            height: 42px;
+            border: 1px solid var(--bs-primary);
+            background: var(--bs-white);
+            color: var(--bs-dark);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: 0.5s;
+        }
+
+        .baustellen-carousel .owl-nav .owl-prev:hover,
+        .baustellen-carousel .owl-nav .owl-next:hover {
+            background: var(--bs-primary);
+            color: var(--bs-white);
+        }
+
+        .baustellen-carousel .owl-nav .owl-prev {
+            left: -20px;
+        }
+
+        .baustellen-carousel .owl-nav .owl-next {
+            right: -20px;
+        }
+
+        .baustellen-carousel .owl-dots {
+            margin-top: 1rem;
+            text-align: center;
+        }
+
+        .baustellen-carousel.owl-carousel .owl-dots .owl-dot span {
+            width: 10px;
+            height: 10px;
+            margin: 5px;
+            background: #cfd4da;
+        }
+
+        .baustellen-carousel.owl-carousel .owl-dots .owl-dot.active span {
+            background: var(--bs-primary);
+        }
+
+        @media (max-width: 1199px) {
+            .baustellen-carousel .owl-nav .owl-prev {
+                left: -10px;
+            }
+
+            .baustellen-carousel .owl-nav .owl-next {
+                right: -10px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+        <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+    </div>
+
+    <div class="container-fluid header-top">
+        <div class="container d-flex align-items-center">
+            <div class="d-flex align-items-center h-100">
+                <a href="#" class="navbar-brand" style="height: 125px;">
+                    <h1 class="text-primary mb-0"><i class="fas fa-road"></i> SonkaBau</h1>
+                </a>
+            </div>
+            <div class="w-100 h-100">
+                <div class="topbar px-0 py-2 d-none d-lg-block" style="height: 45px;">
+                    <div class="row gx-0 align-items-center">
+                        <div class="col-lg-8 text-center text-lg-center mb-lg-0">
+                            <div class="d-flex flex-wrap">
+                                <div class="ps-3">
+                                    <a href="mailto:kontakt@sonka-bau.de" class="text-muted small"><i class="fas fa-envelope text-primary me-2"></i>kontakt@sonka-bau.de</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 text-center text-lg-end">
+                            <div class="d-flex justify-content-end">
+                                <div class="d-flex border-end border-primary pe-3">
+                                    <a class="btn p-0 text-primary me-3" href="#"><i class="fab fa-facebook-f"></i></a>
+                                    <a class="btn p-0 text-primary me-3" href="#"><i class="fab fa-twitter"></i></a>
+                                    <a class="btn p-0 text-primary me-3" href="#"><i class="fab fa-instagram"></i></a>
+                                    <a class="btn p-0 text-primary me-0" href="#"><i class="fab fa-linkedin-in"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="nav-bar px-0 py-lg-0" style="height: 80px;">
+                    <nav class="navbar navbar-expand-lg navbar-light d-flex justify-content-lg-end">
+                        <a href="#" class="navbar-brand-2">
+                            <h1 class="text-primary mb-0"><i class="fas fa-road"></i> SonkaBau</h1>
+                        </a>
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                            <span class="fa fa-bars"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarCollapse">
+                            <div class="navbar-nav mx-0 mx-lg-auto bg-white">
+                                <a href="index.html" class="nav-item nav-link">Startseite</a>
+                                <a href="ueber-uns.html" class="nav-item nav-link">Über uns</a>
+                                <a href="angebote.html" class="nav-item nav-link">Angebote</a>
+                                <a href="gallerie.html" class="nav-item nav-link active">Galerie</a>
+                                <a href="kontakt.html" class="nav-item nav-link">Kontakt</a>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid bg-breadcrumb">
+        <div class="container text-center py-5" style="max-width: 900px;">
+            <h4 class="text-white display-4 mb-4 wow fadeInDown" data-wow-delay="0.1s">Galerie</h4>
+            <ol class="breadcrumb d-flex justify-content-center mb-0 wow fadeInDown" data-wow-delay="0.3s">
+                <li class="breadcrumb-item"><a href="index.html">Startseite</a></li>
+                <li class="breadcrumb-item active text-primary">Galerie</li>
+            </ol>
+        </div>
+    </div>
+
+    <div class="container-fluid py-5">
+        <div class="container py-5">
+            <div class="d-flex flex-column mx-auto text-center mb-5 wow fadeInUp" data-wow-delay="0.2s" style="max-width: 800px;">
+                <h1 class="text-primary">Unsere Projekte in Bildern</h1>
+                <h3 class="mb-3">Einblicke in unsere Arbeit</h3>
+                <p class="mb-0">Hier sehen Sie Auszüge aus unseren Projekten aus den Bereichen Pflasterarbeiten, Tiefbau, Erdbau sowie Garten- und Landschaftsbau.</p>
+            </div>
+
+            <section class="gallery-project wow fadeInUp" data-wow-delay="0.1s">
+                <h2 class="gallery-project-title text-primary">Projekt 1 – Pflasterarbeiten</h2>
+                <div class="baustellen-carousel owl-carousel">
+                    <div class="gallery-item h-100">
+                        <button class="gallery-open" type="button" aria-label="Bild vergrößern" data-bs-toggle="modal" data-bs-target="#galleryModal" data-image="img/Pflasterarbeiten/Pflaster-Beteinfassung.jpg" data-alt="Projekt 1 - Pflasterarbeiten mit Beteinfassung">
+                            <img src="img/Pflasterarbeiten/Pflaster-Beteinfassung.jpg" alt="Projekt 1 - Pflasterarbeiten mit Beteinfassung">
+                        </button>
+                        <div class="gallery-caption">Beteinfassung</div>
+                    </div>
+                    <div class="gallery-item h-100">
+                        <button class="gallery-open" type="button" aria-label="Bild vergrößern" data-bs-toggle="modal" data-bs-target="#galleryModal" data-image="img/Pflasterarbeiten/Schwerlasteinfahrt.jpeg" data-alt="Projekt 1 - Schwerlasteinfahrt aus Pflastersteinen">
+                            <img src="img/Pflasterarbeiten/Schwerlasteinfahrt.jpeg" alt="Projekt 1 - Schwerlasteinfahrt aus Pflastersteinen">
+                        </button>
+                        <div class="gallery-caption">Schwerlasteinfahrt</div>
+                    </div>
+                    <div class="gallery-item h-100">
+                        <button class="gallery-open" type="button" aria-label="Bild vergrößern" data-bs-toggle="modal" data-bs-target="#galleryModal" data-image="img/Pflasterarbeiten/Gehweg,Stadt.jpeg" data-alt="Projekt 1 - Gehwegpflaster im Stadtbereich">
+                            <img src="img/Pflasterarbeiten/Gehweg,Stadt.jpeg" alt="Projekt 1 - Gehwegpflaster im Stadtbereich">
+                        </button>
+                        <div class="gallery-caption">Gehwegpflaster</div>
+                    </div>
+                    <div class="gallery-item h-100">
+                        <button class="gallery-open" type="button" aria-label="Bild vergrößern" data-bs-toggle="modal" data-bs-target="#galleryModal" data-image="img/Pflasterarbeiten/Gullieinfassung.jpeg" data-alt="Projekt 1 - Gullyeinfassung im Straßenbau">
+                            <img src="img/Pflasterarbeiten/Gullieinfassung.jpeg" alt="Projekt 1 - Gullyeinfassung im Straßenbau">
+                        </button>
+                        <div class="gallery-caption">Gullyeinfassung</div>
+                    </div>
+                    <div class="gallery-item h-100">
+                        <button class="gallery-open" type="button" aria-label="Bild vergrößern" data-bs-toggle="modal" data-bs-target="#galleryModal" data-image="img/Pflasterarbeiten/Halbstein-zu-L-Verband.jpeg" data-alt="Projekt 1 - Halbstein-Verband mit Randabschluss">
+                            <img src="img/Pflasterarbeiten/Halbstein-zu-L-Verband.jpeg" alt="Projekt 1 - Halbstein-Verband mit Randabschluss">
+                        </button>
+                        <div class="gallery-caption">Halbstein-Verband</div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="gallery-project wow fadeInUp" data-wow-delay="0.2s">
+                <h2 class="gallery-project-title text-primary">Projekt 2 – Kanalarbeiten</h2>
+                <div class="baustellen-carousel owl-carousel">
+                    <div class="gallery-item h-100">
+                        <button class="gallery-open" type="button" aria-label="Bild vergrößern" data-bs-toggle="modal" data-bs-target="#galleryModal" data-image="img/Kanalarbeiten/Kanalsystem.jpeg" data-alt="Projekt 2 - Tiefbau und Kanalarbeiten">
+                            <img src="img/Kanalarbeiten/Kanalsystem.jpeg" alt="Projekt 2 - Tiefbau und Kanalarbeiten">
+                        </button>
+                        <div class="gallery-caption">Kanalsystem</div>
+                    </div>
+                    <div class="gallery-item h-100">
+                        <button class="gallery-open" type="button" aria-label="Bild vergrößern" data-bs-toggle="modal" data-bs-target="#galleryModal" data-image="img/Kanalarbeiten/Regenwasserablauf.jpeg" data-alt="Projekt 2 - Regenwasserablauf im Straßenbau">
+                            <img src="img/Kanalarbeiten/Regenwasserablauf.jpeg" alt="Projekt 2 - Regenwasserablauf im Straßenbau">
+                        </button>
+                        <div class="gallery-caption">Regenwasserablauf</div>
+                    </div>
+                    <div class="gallery-item h-100">
+                        <button class="gallery-open" type="button" aria-label="Bild vergrößern" data-bs-toggle="modal" data-bs-target="#galleryModal" data-image="img/Kanalarbeiten/Sinkkasten,Kanal.jpeg" data-alt="Projekt 2 - Einbau von Sinkkasten und Kanalanschluss">
+                            <img src="img/Kanalarbeiten/Sinkkasten,Kanal.jpeg" alt="Projekt 2 - Einbau von Sinkkasten und Kanalanschluss">
+                        </button>
+                        <div class="gallery-caption">Sinkkasten</div>
+                    </div>
+                    <div class="gallery-item h-100">
+                        <button class="gallery-open" type="button" aria-label="Bild vergrößern" data-bs-toggle="modal" data-bs-target="#galleryModal" data-image="img/Kanalarbeiten/Tiefbauarbeiten.jpeg" data-alt="Projekt 2 - Baustelle mit Tiefbauarbeiten">
+                            <img src="img/Kanalarbeiten/Tiefbauarbeiten.jpeg" alt="Projekt 2 - Baustelle mit Tiefbauarbeiten">
+                        </button>
+                        <div class="gallery-caption">Tiefbauarbeiten</div>
+                    </div>
+                    <div class="gallery-item h-100">
+                        <button class="gallery-open" type="button" aria-label="Bild vergrößern" data-bs-toggle="modal" data-bs-target="#galleryModal" data-image="img/Pflasterarbeiten/Muldenrinne,randstein.jpeg" data-alt="Projekt 2 - Muldenrinne mit Randsteinarbeiten">
+                            <img src="img/Pflasterarbeiten/Muldenrinne,randstein.jpeg" alt="Projekt 2 - Muldenrinne mit Randsteinarbeiten">
+                        </button>
+                        <div class="gallery-caption">Randsteinanschluss</div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="gallery-project wow fadeInUp" data-wow-delay="0.3s">
+                <h2 class="gallery-project-title text-primary">Projekt 3 – Terrassenbau</h2>
+                <div class="baustellen-carousel owl-carousel">
+                    <div class="gallery-item h-100">
+                        <button class="gallery-open" type="button" aria-label="Bild vergrößern" data-bs-toggle="modal" data-bs-target="#galleryModal" data-image="img/Terassen/Terasse-Fliesen-Pflaster.jpeg" data-alt="Projekt 3 - Terrasse mit Fliesen und Pflaster">
+                            <img src="img/Terassen/Terasse-Fliesen-Pflaster.jpeg" alt="Projekt 3 - Terrasse mit Fliesen und Pflaster">
+                        </button>
+                        <div class="gallery-caption">Bauphase Terrasse</div>
+                    </div>
+                    <div class="gallery-item h-100">
+                        <button class="gallery-open" type="button" aria-label="Bild vergrößern" data-bs-toggle="modal" data-bs-target="#galleryModal" data-image="img/Terassen/Terasse-Fliesen-Pflaster-fertig.jpeg" data-alt="Projekt 3 - Fertige Terrasse mit Fliesen und Pflaster">
+                            <img src="img/Terassen/Terasse-Fliesen-Pflaster-fertig.jpeg" alt="Projekt 3 - Fertige Terrasse mit Fliesen und Pflaster">
+                        </button>
+                        <div class="gallery-caption">Fertige Terrasse</div>
+                    </div>
+                    <div class="gallery-item h-100">
+                        <button class="gallery-open" type="button" aria-label="Bild vergrößern" data-bs-toggle="modal" data-bs-target="#galleryModal" data-image="img/Terassen/Terasse,garten,bord.jpeg" data-alt="Projekt 3 - Terrasse mit Garten und Bord">
+                            <img src="img/Terassen/Terasse,garten,bord.jpeg" alt="Projekt 3 - Terrasse mit Garten und Bord">
+                        </button>
+                        <div class="gallery-caption">Gartenanschluss</div>
+                    </div>
+                    <div class="gallery-item h-100">
+                        <button class="gallery-open" type="button" aria-label="Bild vergrößern" data-bs-toggle="modal" data-bs-target="#galleryModal" data-image="img/Terassen/Terasse,vorgarten.jpeg" data-alt="Projekt 3 - Terrassenfläche im Vorgarten">
+                            <img src="img/Terassen/Terasse,vorgarten.jpeg" alt="Projekt 3 - Terrassenfläche im Vorgarten">
+                        </button>
+                        <div class="gallery-caption">Vorgarten-Terrasse</div>
+                    </div>
+                    <div class="gallery-item h-100">
+                        <button class="gallery-open" type="button" aria-label="Bild vergrößern" data-bs-toggle="modal" data-bs-target="#galleryModal" data-image="img/Pflasterarbeiten/Tür-tritt-besser.jpeg" data-alt="Projekt 3 - Türtritt mit sauberer Pflasterkante">
+                            <img src="img/Pflasterarbeiten/Tür-tritt-besser.jpeg" alt="Projekt 3 - Türtritt mit sauberer Pflasterkante">
+                        </button>
+                        <div class="gallery-caption">Haustür-Anschluss</div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="gallery-project wow fadeInUp" data-wow-delay="0.4s">
+                <h2 class="gallery-project-title text-primary">Projekt 4 – Schwerlast & Flächenbau</h2>
+                <div class="baustellen-carousel owl-carousel">
+                    <div class="gallery-item h-100">
+                        <button class="gallery-open" type="button" aria-label="Bild vergrößern" data-bs-toggle="modal" data-bs-target="#galleryModal" data-image="img/Schwerlastboden.png" data-alt="Projekt 4 - Schwerlastboden und Bodenstabilisierung">
+                            <img src="img/Schwerlastboden.png" alt="Projekt 4 - Schwerlastboden und Bodenstabilisierung">
+                        </button>
+                        <div class="gallery-caption">Schwerlastboden</div>
+                    </div>
+                    <div class="gallery-item h-100">
+                        <button class="gallery-open" type="button" aria-label="Bild vergrößern" data-bs-toggle="modal" data-bs-target="#galleryModal" data-image="img/Pflasterarbeiten/Schwerlastboden.jpeg" data-alt="Projekt 4 - Tragfähige Pflasterfläche für Schwerlastverkehr">
+                            <img src="img/Pflasterarbeiten/Schwerlastboden.jpeg" alt="Projekt 4 - Tragfähige Pflasterfläche für Schwerlastverkehr">
+                        </button>
+                        <div class="gallery-caption">Pflasterfläche Schwerlast</div>
+                    </div>
+                    <div class="gallery-item h-100">
+                        <button class="gallery-open" type="button" aria-label="Bild vergrößern" data-bs-toggle="modal" data-bs-target="#galleryModal" data-image="img/Pflasterarbeiten/Halbsteinverband-akudren.jpeg" data-alt="Projekt 4 - Unterbau mit Halbsteinverband und Dränung">
+                            <img src="img/Pflasterarbeiten/Halbsteinverband-akudren.jpeg" alt="Projekt 4 - Unterbau mit Halbsteinverband und Dränung">
+                        </button>
+                        <div class="gallery-caption">Unterbau & Dränung</div>
+                    </div>
+                    <div class="gallery-item h-100">
+                        <button class="gallery-open" type="button" aria-label="Bild vergrößern" data-bs-toggle="modal" data-bs-target="#galleryModal" data-image="img/Pflasterarbeiten/Schwerlasteinfahrt.jpeg" data-alt="Projekt 4 - Baustellenfläche mit Pflasterverbund">
+                            <img src="img/Pflasterarbeiten/Schwerlasteinfahrt.jpeg" alt="Projekt 4 - Baustellenfläche mit Pflasterverbund">
+                        </button>
+                        <div class="gallery-caption">Baustellenfläche</div>
+                    </div>
+                    <div class="gallery-item h-100">
+                        <button class="gallery-open" type="button" aria-label="Bild vergrößern" data-bs-toggle="modal" data-bs-target="#galleryModal" data-image="img/Pflasterarbeiten/Tür-tritt-besser-unfertig.jpeg" data-alt="Projekt 4 - Bauphase Türtritt und Flächenanpassung">
+                            <img src="img/Pflasterarbeiten/Tür-tritt-besser-unfertig.jpeg" alt="Projekt 4 - Bauphase Türtritt und Flächenanpassung">
+                        </button>
+                        <div class="gallery-caption">Bauphase</div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="gallery-project wow fadeInUp" data-wow-delay="0.5s">
+                <h2 class="gallery-project-title text-primary">Projekt 5 – Baustellen Impressionen</h2>
+                <div class="baustellen-carousel owl-carousel">
+                    <div class="gallery-item h-100">
+                        <button class="gallery-open" type="button" aria-label="Bild vergrößern" data-bs-toggle="modal" data-bs-target="#galleryModal" data-image="img/Kanalarbeiten/Tiefbauarbeiten.jpeg" data-alt="Projekt 5 - Baustellenimpression mit Materialanlieferung">
+                            <img src="img/Kanalarbeiten/Tiefbauarbeiten.jpeg" alt="Projekt 5 - Baustellenimpression mit Materialanlieferung">
+                        </button>
+                        <div class="gallery-caption">Materialanlieferung</div>
+                    </div>
+                    <div class="gallery-item h-100">
+                        <button class="gallery-open" type="button" aria-label="Bild vergrößern" data-bs-toggle="modal" data-bs-target="#galleryModal" data-image="img/Kanalarbeiten/Sinkkasten,Kanal.jpeg" data-alt="Projekt 5 - Baustellenansicht während der Ausführung">
+                            <img src="img/Kanalarbeiten/Sinkkasten,Kanal.jpeg" alt="Projekt 5 - Baustellenansicht während der Ausführung">
+                        </button>
+                        <div class="gallery-caption">Ausführungsphase</div>
+                    </div>
+                    <div class="gallery-item h-100">
+                        <button class="gallery-open" type="button" aria-label="Bild vergrößern" data-bs-toggle="modal" data-bs-target="#galleryModal" data-image="img/Terassen/Terasse,vorgarten.jpeg" data-alt="Projekt 5 - Baustelle mit fertiggestelltem Teilbereich">
+                            <img src="img/Terassen/Terasse,vorgarten.jpeg" alt="Projekt 5 - Baustelle mit fertiggestelltem Teilbereich">
+                        </button>
+                        <div class="gallery-caption">Teilfertigstellung</div>
+                    </div>
+                    <div class="gallery-item h-100">
+                        <button class="gallery-open" type="button" aria-label="Bild vergrößern" data-bs-toggle="modal" data-bs-target="#galleryModal" data-image="img/Pflasterarbeiten/Gehweg,Stadt.jpeg" data-alt="Projekt 5 - Gehwegpflaster in urbaner Umgebung">
+                            <img src="img/Pflasterarbeiten/Gehweg,Stadt.jpeg" alt="Projekt 5 - Gehwegpflaster in urbaner Umgebung">
+                        </button>
+                        <div class="gallery-caption">Stadtpflaster</div>
+                    </div>
+                    <div class="gallery-item h-100">
+                        <button class="gallery-open" type="button" aria-label="Bild vergrößern" data-bs-toggle="modal" data-bs-target="#galleryModal" data-image="img/Pflasterarbeiten/Pflaster-Beteinfassung.jpg" data-alt="Projekt 5 - Detailaufnahme sauberer Beteinfassung">
+                            <img src="img/Pflasterarbeiten/Pflaster-Beteinfassung.jpg" alt="Projekt 5 - Detailaufnahme sauberer Beteinfassung">
+                        </button>
+                        <div class="gallery-caption">Detailarbeit</div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <div class="modal fade" id="galleryModal" tabindex="-1" aria-labelledby="galleryModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl modal-dialog-centered">
+            <div class="modal-content bg-dark border-0">
+                <div class="modal-header border-0 pb-0">
+                    <h5 class="modal-title text-white" id="galleryModalLabel">Bildansicht</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Schließen"></button>
+                </div>
+                <div class="modal-body pt-2">
+                    <img id="galleryModalImage" src="" alt="" class="img-fluid w-100 rounded">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid footer bg-dark py-5 wow fadeIn" data-wow-delay="0.2s">
+        <div class="container py-5">
+            <div class="row g-5 mb-5 align-items-center">
+                <div class="col-lg-7">
+                    <div class="position-relative mx-auto">
+                        <input class="form-control w-100 py-3 ps-4 pe-5" type="text" placeholder="Neuigkeiten erhalten">
+                        <button type="button" class="btn btn-primary position-absolute top-0 end-0 py-2 px-4 mt-2 me-2">Abonnieren</button>
+                    </div>
+                </div>
+                <div class="col-lg-5">
+                    <div class="d-flex align-items-center justify-content-center justify-content-lg-end">
+                        <a class="btn btn-light btn-md-square me-3" href=""><i class="fab fa-facebook-f"></i></a>
+                        <a class="btn btn-light btn-md-square me-3" href=""><i class="fab fa-twitter"></i></a>
+                        <a class="btn btn-light btn-md-square me-3" href=""><i class="fab fa-instagram"></i></a>
+                        <a class="btn btn-light btn-md-square me-0" href=""><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="row g-5">
+                <div class="col-md-6 col-lg-6 col-xl-3">
+                    <div class="footer-item d-flex flex-column">
+                        <div class="footer-item">
+                            <h3 class="text-white mb-4"><i class="fas fa-bolt text-primary me-3"></i>Sonka-Bau</h3>
+                            <p class="mb-3">Wir stehen für Qualität, Präzision und zuverlässige Bauprojekte. Ob Neubau, Sanierung oder Modernisierung – unser erfahrenes Team realisiert Ihr Bauvorhaben termingerecht und professionell mit höchsten Qualitätsstandards.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-6 col-xl-3">
+                    <div class="footer-item d-flex flex-column">
+                        <h4 class="text-white mb-4">Übersicht</h4>
+                        <a href="index.html"> Startseite</a>
+                        <a href="ueber-uns.html"> Über uns</a>
+                        <a href="angebote.html"> Angebote</a>
+                        <a href="gallerie.html"> Galerie</a>
+                        <a href="kontakt.html"> Kontakt</a>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-6 col-xl-3">
+                    <div class="footer-item d-flex flex-column">
+                        <h4 class="text-white mb-4">Rechtliches</h4>
+                        <a href="Impressum.html">Impressum</a>
+                        <a href="Datenschutz.html">Datenschutz</a>
+                      
+                        <a href="sitemap.html">Sitemap</a>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-6 col-xl-3">
+                    <div class="footer-item d-flex flex-column">
+                        <h4 class="text-white mb-4">Anschrift</h4>
+                        <div class="text-white">
+                            <h5 class="text-white mb-3">Sonka Bau e.K.</h5>
+                            <a href="#"><p class="mb-2"><i class="fa fa-map-marker-alt text-primary me-2"></i>Poelzig Straße 36 28205 Bremen</p></a>
+                            <a href="#"><p class="mb-2"><i class="fa fa-phone-alt text-primary me-2"></i>+49 174 1936 395</p></a>
+                            <a href="mailto:kontakt@sonka-bau.de"><p class="mb-0"><i class="fa fa-envelope text-primary me-2"></i>kontakt@sonka-bau.de</p></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid copyright py-4">
+        <div class="container">
+            <div class="row g-4 align-items-center">
+                <div class="col-md-6 text-center text-md-start mb-md-0">
+                    <span class="text-body"><a href="#" class="border-bottom text-white"><i class="fas fa-copyright text-light me-2"></i>Sonka-Bau</a>, All right reserved.</span>
+                </div>
+                <div class="col-md-6 text-center text-md-end text-body">
+                    Designed By <a class="border-bottom text-white" href="">IT-Deutschland</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <a href="#" class="btn btn-primary btn-lg-square back-to-top"><i class="fa fa-arrow-up"></i></a>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/wow/wow.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+        (function ($) {
+            "use strict";
+
+            $(function () {
+                $(".baustellen-carousel").owlCarousel({
+                    autoplay: true,
+                    autoplayHoverPause: true,
+                    smartSpeed: 1400,
+                    margin: 20,
+                    loop: true,
+                    nav: true,
+                    dots: true,
+                    navText: [
+                        '<i class="bi bi-arrow-left"></i>',
+                        '<i class="bi bi-arrow-right"></i>'
+                    ],
+                    responsive: {
+                        0: { items: 1 },
+                        576: { items: 2 },
+                        768: { items: 3 },
+                        992: { items: 4 },
+                        1400: { items: 5 }
+                    }
+                });
+
+                const modalImage = document.getElementById("galleryModalImage");
+                document.addEventListener("click", function (event) {
+                    const button = event.target.closest(".gallery-open");
+                    if (!button) return;
+                    modalImage.src = button.getAttribute("data-image") || "";
+                    modalImage.alt = button.getAttribute("data-alt") || "";
+                });
+
+                const galleryModal = document.getElementById("galleryModal");
+                galleryModal.addEventListener("hidden.bs.modal", function () {
+                    modalImage.src = "";
+                    modalImage.alt = "";
+                });
+            });
+        })(jQuery);
+    </script>
+</body>
+
+</html>

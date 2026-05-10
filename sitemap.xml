@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  =========================================================
+  SITEMAP – Sonka Bau (https://www.sonka-bau.de)
+  =========================================================
+  Diese Datei teilt Google und anderen Suchmaschinen mit,
+  welche Seiten der Website indexiert werden sollen.
+
+  Erklärung der Felder:
+  - <loc>        : Vollständige URL der Seite
+  - <lastmod>    : Datum der letzten inhaltlichen Änderung (YYYY-MM-DD)
+  - <changefreq> : Wie oft die Seite typischerweise aktualisiert wird
+                   (always | hourly | daily | weekly | monthly | yearly | never)
+  - <priority>   : Relative Wichtigkeit gegenüber anderen Seiten dieser Domain
+                   Skala: 0.0 (unwichtig) bis 1.0 (sehr wichtig)
+                   Standard-Wert laut Google-Richtlinien: 0.5
+
+  Hinweis: Google nutzt <lastmod> zur Crawl-Steuerung – genaue,
+  aktuelle Daten verbessern die Indexierungsgeschwindigkeit.
+  =========================================================
+-->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <!-- ===================================================
+       STARTSEITE – Höchste Priorität, da Einstiegspunkt
+       für alle Besucher und Google-Crawler.
+       =================================================== -->
+  <url>
+    <loc>https://www.sonka-bau.de/</loc>
+    <lastmod>2026-03-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- ===================================================
+       LEISTUNGEN / ANGEBOTE – Wichtigste Unterseite.
+       Zeigt alle Dienstleistungen (Erdarbeiten, Tiefbau,
+       Pflasterarbeiten usw.). Hohe SEO-Relevanz.
+       =================================================== -->
+  <url>
+    <loc>https://www.sonka-bau.de/angebote.html</loc>
+    <lastmod>2026-03-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- ===================================================
+       ÜBER UNS – Stärkt Vertrauen und E-E-A-T (Erfahrung,
+       Expertise, Autorität, Vertrauenswürdigkeit) bei Google.
+       Wichtig für lokale Suchanfragen in Bremen.
+       =================================================== -->
+  <url>
+    <loc>https://www.sonka-bau.de/ueber-uns.html</loc>
+    <lastmod>2026-03-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- ===================================================
+       KONTAKT – Conversion-Seite für Angebotsanfragen.
+       Relevant für Google Business Profile und lokale SEO.
+       =================================================== -->
+  <url>
+    <loc>https://www.sonka-bau.de/kontakt.html</loc>
+    <lastmod>2026-03-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- ===================================================
+       GALERIE – Projekt- und Referenzbilder für Besucher
+       und Suchmaschinen. Unterstützt visuelle SEO-Signale.
+       =================================================== -->
+  <url>
+    <loc>https://www.sonka-bau.de/gallerie.html</loc>
+    <lastmod>2026-04-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- ===================================================
+       IMPRESSUM – Pflichtangabe (§ 5 TMG). Wird von Google
+       als Vertrauenssignal gewertet, hat aber geringen
+       SEO-Wert. Seltene Änderungen daher "yearly".
+       =================================================== -->
+  <url>
+    <loc>https://www.sonka-bau.de/Impressum.html</loc>
+    <lastmod>2026-03-28</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
+  <!-- ===================================================
+       DATENSCHUTZ – Pflichtangabe (DSGVO). Ähnlich wie
+       Impressum: wichtig für Rechtskonformität, geringer
+       direkter SEO-Wert.
+       =================================================== -->
+  <url>
+    <loc>https://www.sonka-bau.de/Datenschutz.html</loc>
+    <lastmod>2026-03-28</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
+  <!-- ===================================================
+       HTML-SITEMAP – Für Besucher und Suchmaschinen sichtbare
+       Übersicht aller Seiten mit Beschreibungen und thematischer
+       Kategorisierung. Ergänzt die XML-Sitemap.
+       =================================================== -->
+  <url>
+    <loc>https://www.sonka-bau.de/sitemap.html</loc>
+    <lastmod>2026-03-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.4</priority>
+  </url>
+
+</urlset>
