@@ -348,54 +348,54 @@
                console.error("Kontaktformular-Felder fehlen im DOM.");
                if (submitButton) submitButton.disabled = true;
                setFormError("Das Formular konnte nicht vollständig geladen werden. Bitte laden Sie die Seite neu.");
-               return;
+            } else {
+               contactForm.addEventListener("submit", function (event) {
+                  event.preventDefault();
+                  setFormError("");
+
+                  const getFieldValue = (id) => fields[id].value.trim();
+                  const name = getFieldValue("name");
+                  const email = getFieldValue("email");
+                  const phone = getFieldValue("phone");
+                  const project = getFieldValue("project");
+                  const subject = getFieldValue("subject");
+                  const message = getFieldValue("message");
+
+                  if (!name || !email || !message) {
+                     setFormError("Bitte füllen Sie mindestens Name, E-Mail und Nachricht aus.");
+                     return;
+                  }
+
+                  if (!fields.email.checkValidity()) {
+                     setFormError("Bitte geben Sie eine gültige E-Mail-Adresse ein.");
+                     return;
+                  }
+
+                  const mailSubject = encodeURIComponent(`Kontaktanfrage von ${name}`);
+                  const mailBody = encodeURIComponent(
+                     [
+                        "Neue Kontaktanfrage über kontakt.html",
+                        "",
+                        `Name: ${name}`,
+                        `E-Mail: ${email}`,
+                        `Telefon: ${phone}`,
+                        `Auftrag: ${project}`,
+                        `Zusätzliche Informationen: ${subject}`,
+                        `Nachricht: ${message}`,
+                     ].join("\n")
+                  );
+
+                  const mailtoUrl = `mailto:kontakt@sonka-bau.de?subject=${mailSubject}&body=${mailBody}`;
+
+                  if (mailtoUrl.length > MAX_MAILTO_LENGTH) {
+                     const totalInputLength = [name, email, phone, project, subject, message].join("").length;
+                     setFormError(`Ihre Eingaben sind zu lang (${totalInputLength} Zeichen Inhalt). Bitte kürzen Sie vor allem das Feld „Ihre Nachricht/Auftrag“.`);
+                     return;
+                  }
+
+                  window.location.href = mailtoUrl;
+               });
             }
-
-            contactForm.addEventListener("submit", function (event) {
-               event.preventDefault();
-               setFormError("");
-
-               const getFieldValue = (id) => fields[id].value.trim();
-               const name = getFieldValue("name");
-               const email = getFieldValue("email");
-               const phone = getFieldValue("phone");
-               const project = getFieldValue("project");
-               const subject = getFieldValue("subject");
-               const message = getFieldValue("message");
-
-               if (!name || !email || !message) {
-                  setFormError("Bitte füllen Sie mindestens Name, E-Mail und Nachricht aus.");
-                  return;
-               }
-
-               if (!fields.email.checkValidity()) {
-                  setFormError("Bitte geben Sie eine gültige E-Mail-Adresse ein.");
-                  return;
-               }
-
-               const mailSubject = encodeURIComponent(`Kontaktanfrage von ${name || "Website-Besucher"}`);
-               const mailBody = encodeURIComponent(
-                  [
-                     "Neue Kontaktanfrage über kontakt.html",
-                     "",
-                     `Name: ${name}`,
-                     `E-Mail: ${email}`,
-                     `Telefon: ${phone}`,
-                     `Auftrag: ${project}`,
-                     `Zusätzliche Informationen: ${subject}`,
-                     `Nachricht: ${message}`,
-                  ].join("\n")
-               );
-
-               const mailtoUrl = `mailto:kontakt@sonka-bau.de?subject=${mailSubject}&body=${mailBody}`;
-
-               if (mailtoUrl.length > MAX_MAILTO_LENGTH) {
-                  setFormError(`Ihre Eingaben sind zu lang (${mailtoUrl.length}/${MAX_MAILTO_LENGTH} Zeichen). Bitte kürzen Sie vor allem das Feld „Ihre Nachricht/Auftrag“.`);
-                  return;
-               }
-
-               window.location.href = mailtoUrl;
-            });
          }
          </script>
         
