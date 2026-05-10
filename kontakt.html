@@ -183,6 +183,7 @@
                                     </div>
                                     <div class="col-12">
                                         <button type="submit" class="btn btn-primary w-100 py-3">Absenden</button>
+                                        <div id="contactFormError" class="text-danger mt-2" role="alert" aria-live="polite"></div>
                                     </div>
                                 </div>
                             </form>
@@ -321,12 +322,24 @@
          <script>
          const contactForm = document.getElementById("contactForm");
          const MAX_MAILTO_LENGTH = 1900;
+         const fieldIds = ["name", "email", "phone", "project", "subject", "message"];
+         const fields = Object.fromEntries(fieldIds.map((id) => [id, document.getElementById(id)]));
+         const contactFormError = document.getElementById("contactFormError");
 
          if (contactForm) {
+            if (Object.values(fields).some((field) => !field)) {
+               console.error("Kontaktformular-Felder fehlen im DOM.");
+               if (contactFormError) {
+                  contactFormError.textContent = "Das Formular konnte nicht vollständig geladen werden. Bitte laden Sie die Seite neu.";
+               }
+               return;
+            }
+
             contactForm.addEventListener("submit", function (event) {
                event.preventDefault();
+               if (contactFormError) contactFormError.textContent = "";
 
-               const getFieldValue = (id) => (document.getElementById(id)?.value || "").trim();
+               const getFieldValue = (id) => fields[id].value.trim();
                const name = getFieldValue("name");
                const email = getFieldValue("email");
                const phone = getFieldValue("phone");
@@ -351,7 +364,9 @@
                const mailtoUrl = `mailto:kontakt@sonka-bau.de?subject=${mailSubject}&body=${mailBody}`;
 
                if (mailtoUrl.length > MAX_MAILTO_LENGTH) {
-                  alert(`Ihre Eingaben sind zu lang (${mailtoUrl.length}/${MAX_MAILTO_LENGTH} Zeichen). Bitte kürzen Sie vor allem das Feld „Ihre Nachricht/Auftrag“.`);
+                  if (contactFormError) {
+                     contactFormError.textContent = `Ihre Eingaben sind zu lang (${mailtoUrl.length}/${MAX_MAILTO_LENGTH} Zeichen). Bitte kürzen Sie vor allem das Feld „Ihre Nachricht/Auftrag“.`;
+                  }
                   return;
                }
 
