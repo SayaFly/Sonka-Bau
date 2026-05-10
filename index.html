@@ -312,7 +312,7 @@
                                     <h1 class="display-2 text-white mb-4">Leistung für nahtlose Sonka-Bau-Lösungen</h1>
                                     <p class="mb-5 fs-5">Wir bieten maßgeschneiderte Lösungen für Ihre Bau- und Landschaftsprojekte. Vertrauen Sie auf unsere langjährige Erfahrung und unser Engagement für Qualität.</p>
                                     <div class="d-flex justify-content-center justify-content-md-start flex-shrink-0 mb-4">
-                                        <a class="btn btn-light py-3 px-4 px-md-5 me-2" href="#"><i class="fas fa-play-circle me-2"></i> Video ansehen</a>
+                                        <button type="button" class="btn btn-light py-3 px-4 px-md-5 me-2 open-video-modal" data-bs-toggle="modal" data-bs-target="#heroVideoModal"><i class="fas fa-play-circle me-2"></i> Video ansehen</button>
                                         <a class="btn btn-primary py-3 px-4 px-md-5 ms-2" href="#">Mehr erfahren</a>
                                     </div>
                                 </div>
@@ -333,7 +333,7 @@
                                     <h1 class="display-2 text-white mb-4">Leistung für nahtlose Sonka-Bau-Lösungen</h1>
                                     <p class="mb-5 fs-5">Wir bieten maßgeschneiderte Lösungen für Ihre Bau- und Landschaftsprojekte. Vertrauen Sie auf unsere langjährige Erfahrung und unser Engagement für Qualität.</p>
                                     <div class="d-flex justify-content-center justify-content-md-start flex-shrink-0 mb-4">
-                                        <a class="btn btn-light py-3 px-4 px-md-5 me-2" href="#"><i class="fas fa-play-circle me-2"></i> Video ansehen</a>
+                                        <button type="button" class="btn btn-light py-3 px-4 px-md-5 me-2 open-video-modal" data-bs-toggle="modal" data-bs-target="#heroVideoModal"><i class="fas fa-play-circle me-2"></i> Video ansehen</button>
                                         <a class="btn btn-primary py-3 px-4 px-md-5 ms-2" href="#">Mehr erfahren</a>
                                     </div>
                                 </div>
@@ -733,6 +733,23 @@
     <!-- Back to Top -->
     <a href="#" class="btn btn-primary btn-lg-square back-to-top"><i class="fa fa-arrow-up"></i></a>   
 
+    <div class="modal fade" id="heroVideoModal" tabindex="-1" aria-labelledby="heroVideoModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-xl">
+            <div class="modal-content bg-dark">
+                <div class="modal-header border-0">
+                    <h5 class="modal-title text-white" id="heroVideoModalLabel">Sonka-Bau Video</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Schließen"></button>
+                </div>
+                <div class="modal-body p-0">
+                    <video id="heroVideoPlayer" class="w-100" controls playsinline preload="metadata">
+                        <source src="videos/Sonka-Bauunternehmen.mp4" type="video/mp4">
+                        Ihr Browser unterstützt das Video-Tag nicht.
+                    </video>
+                </div>
+            </div>
+        </div>
+    </div>
+
     
     <!-- JavaScript Libraries -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
@@ -746,6 +763,32 @@
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var videoModal = document.getElementById('heroVideoModal');
+            var videoPlayer = document.getElementById('heroVideoPlayer');
+
+            if (!videoModal || !videoPlayer) {
+                console.warn('Video-Modal oder Video-Player nicht gefunden.');
+                return;
+            }
+
+            videoModal.addEventListener('shown.bs.modal', function () {
+                videoPlayer.currentTime = 0;
+                var playPromise = videoPlayer.play();
+                if (playPromise !== undefined) {
+                    playPromise.catch(function (error) {
+                        console.warn('Video konnte nicht automatisch gestartet werden:', error);
+                    });
+                }
+            });
+
+            videoModal.addEventListener('hidden.bs.modal', function () {
+                videoPlayer.pause();
+                videoPlayer.currentTime = 0;
+            });
+        });
+    </script>
 
     <!-- Isotope Filter Script -->
     <script>
