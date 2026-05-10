@@ -769,13 +769,14 @@
             var videoPlayer = document.getElementById('heroVideoPlayer');
 
             if (!videoModal || !videoPlayer) {
+                console.warn('Video-Modal oder Video-Player nicht gefunden.');
                 return;
             }
 
             videoModal.addEventListener('shown.bs.modal', function () {
                 videoPlayer.currentTime = 0;
                 var playPromise = videoPlayer.play();
-                if (playPromise && typeof playPromise.catch === 'function') {
+                if (playPromise !== undefined) {
                     playPromise.catch(function (error) {
                         console.warn('Video konnte nicht automatisch gestartet werden:', error);
                     });
