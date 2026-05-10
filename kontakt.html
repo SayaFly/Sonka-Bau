@@ -147,13 +147,13 @@
                                 <div class="row g-4">
                                     <div class="col-lg-12 col-xl-6">
                                         <div class="form-floating">
-                                            <input type="text" class="form-control border-0" id="name" placeholder="Ihr Name">
+                                            <input type="text" class="form-control border-0" id="name" placeholder="Ihr Name" required>
                                             <label for="name">Ihr Vor- und Nachname</label>
                                         </div>
                                     </div>
                                     <div class="col-lg-12 col-xl-6">
                                         <div class="form-floating">
-                                            <input type="email" class="form-control border-0" id="email" placeholder="Ihre Email">
+                                            <input type="email" class="form-control border-0" id="email" placeholder="Ihre Email" required>
                                             <label for="email">Ihre Email</label>
                                         </div>
                                     </div>
@@ -177,13 +177,13 @@
                                     </div>
                                     <div class="col-12">
                                         <div class="form-floating">
-                                            <textarea class="form-control border-0" placeholder="Leave a message here" id="message" style="height: 125px"></textarea>
+                                            <textarea class="form-control border-0" placeholder="Leave a message here" id="message" style="height: 125px" required></textarea>
                                             <label for="message">Ihre Nachricht/Auftrag</label>
                                         </div>
                                     </div>
                                     <div class="col-12">
                                         <button type="submit" class="btn btn-primary w-100 py-3">Absenden</button>
-                                        <div id="contactFormError" class="text-danger mt-2" role="alert" aria-live="polite"></div>
+                                        <div id="contactFormError" class="text-danger mt-2" role="alert" aria-live="polite" aria-hidden="true" tabindex="-1" style="display:none;"></div>
                                     </div>
                                 </div>
                             </form>
@@ -325,19 +325,35 @@
          const fieldIds = ["name", "email", "phone", "project", "subject", "message"];
          const fields = Object.fromEntries(fieldIds.map((id) => [id, document.getElementById(id)]));
          const contactFormError = document.getElementById("contactFormError");
+         const submitButton = contactForm?.querySelector('button[type="submit"]');
+
+         const setFormError = (message) => {
+            if (!contactFormError) return;
+            if (!message) {
+               contactFormError.textContent = "";
+               contactFormError.style.display = "none";
+               contactFormError.setAttribute("aria-hidden", "true");
+               return;
+            }
+
+            contactFormError.textContent = message;
+            contactFormError.style.display = "block";
+            contactFormError.setAttribute("aria-hidden", "false");
+            contactFormError.focus();
+            contactFormError.scrollIntoView({ behavior: "smooth", block: "center" });
+         };
 
          if (contactForm) {
             if (Object.values(fields).some((field) => !field)) {
                console.error("Kontaktformular-Felder fehlen im DOM.");
-               if (contactFormError) {
-                  contactFormError.textContent = "Das Formular konnte nicht vollständig geladen werden. Bitte laden Sie die Seite neu.";
-               }
+               if (submitButton) submitButton.disabled = true;
+               setFormError("Das Formular konnte nicht vollständig geladen werden. Bitte laden Sie die Seite neu.");
                return;
             }
 
             contactForm.addEventListener("submit", function (event) {
                event.preventDefault();
-               if (contactFormError) contactFormError.textContent = "";
+               setFormError("");
 
                const getFieldValue = (id) => fields[id].value.trim();
                const name = getFieldValue("name");
@@ -346,6 +362,16 @@
                const project = getFieldValue("project");
                const subject = getFieldValue("subject");
                const message = getFieldValue("message");
+
+               if (!name || !email || !message) {
+                  setFormError("Bitte füllen Sie mindestens Name, E-Mail und Nachricht aus.");
+                  return;
+               }
+
+               if (!fields.email.checkValidity()) {
+                  setFormError("Bitte geben Sie eine gültige E-Mail-Adresse ein.");
+                  return;
+               }
 
                const mailSubject = encodeURIComponent(`Kontaktanfrage von ${name || "Website-Besucher"}`);
                const mailBody = encodeURIComponent(
@@ -364,9 +390,7 @@
                const mailtoUrl = `mailto:kontakt@sonka-bau.de?subject=${mailSubject}&body=${mailBody}`;
 
                if (mailtoUrl.length > MAX_MAILTO_LENGTH) {
-                  if (contactFormError) {
-                     contactFormError.textContent = `Ihre Eingaben sind zu lang (${mailtoUrl.length}/${MAX_MAILTO_LENGTH} Zeichen). Bitte kürzen Sie vor allem das Feld „Ihre Nachricht/Auftrag“.`;
-                  }
+                  setFormError(`Ihre Eingaben sind zu lang (${mailtoUrl.length}/${MAX_MAILTO_LENGTH} Zeichen). Bitte kürzen Sie vor allem das Feld „Ihre Nachricht/Auftrag“.`);
                   return;
                }
 
