@@ -741,7 +741,7 @@
                     <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Schließen"></button>
                 </div>
                 <div class="modal-body p-0">
-                    <video id="heroVideoPlayer" class="w-100" controls autoplay playsinline preload="metadata">
+                    <video id="heroVideoPlayer" class="w-100" controls playsinline preload="metadata">
                         <source src="videos/Sonka-Bauunternehmen.mp4" type="video/mp4">
                         Ihr Browser unterstützt das Video-Tag nicht.
                     </video>
@@ -775,7 +775,6 @@
 
             videoModal.addEventListener('shown.bs.modal', function () {
                 videoPlayer.currentTime = 0;
-                videoPlayer.defaultMuted = false;
                 videoPlayer.muted = false;
                 videoPlayer.volume = 1;
                 var playPromise = videoPlayer.play();
