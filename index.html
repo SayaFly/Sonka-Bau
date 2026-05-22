@@ -775,6 +775,8 @@
 
             videoModal.addEventListener('shown.bs.modal', function () {
                 videoPlayer.currentTime = 0;
+                videoPlayer.muted = false;
+                videoPlayer.volume = 1;
                 var playPromise = videoPlayer.play();
                 if (playPromise !== undefined) {
                     playPromise.catch(function (error) {
